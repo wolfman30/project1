@@ -8,7 +8,7 @@ Expense reimbursement system for employees to request expense reimbursement to b
 
 * Java - version 8
 * JDBC
-* 
+* JavaScript
 
 ## Features
 * Managers can review list of all reimbursement requests resolved or pending and can see the manager who resolved the request
