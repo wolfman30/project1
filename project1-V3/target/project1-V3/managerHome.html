@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manager Home Page</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous">
+</head>
+<body>
+
+<header class="card">
+    <h1>Manager Home Page</h1>
+</header>
+
+<main id="manager-home-main">
+
+    <div class="form-group row manager-view-list">
+        <form method="post" action="/selectAllEmployees.do">
+            <button type="submit" class="btn btn-primary btn-lg" name="select_all_employees" id="select_all_employees">View All Employees</button>
+        </form>
+        <form method="post" action="/managerViewAllPendingRequests.do">
+            <button type="submit" class="btn btn-primary btn-lg" name="view_all_requests" id="view_all_requests">View All Pending Requests</button>
+        </form>
+        <form method="post" action="/viewAllResolved.do">
+            <button type="submit" class="btn btn-primary btn-lg" name="viewResolvedRequests" id="viewResolvedRequests">View all Resolved Requests</button>
+        </form>
+    </div>
+        <form method="post" action="/">
+            <button type="submit" class="btn btn-primary btn-lg" name="logoutBtn" id="logoutBtn">Log Out</button>
+        </form>
+
+</main>
+<footer>
+
+</footer>
+</body>
+</html>

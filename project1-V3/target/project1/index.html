@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Employee Reimbursement System (ERS) </h1>
+    </header>
+    <main class="container">
+        <header>
+            <h2 id="submission-form-header">User Login Form</h2>
+        </header>
+        <form id="loginForm" method="post" action="/login.do">
+            <label for="email" >Email/Username</label>
+            <input type="email" name="email" id="email" placeholder="Provide email" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" minlength="10" placeholder="Provide password" required>
+            <button type="submit" id="submitBtn" value="Login">Login</button>
+            <br>
+            <h4 id="loading-message"></h4>
+        </form>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

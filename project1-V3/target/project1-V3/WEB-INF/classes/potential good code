@@ -1,0 +1,297 @@
+//        ObjectMapper mapper = new ObjectMapper();
+//        try {
+//            User user = mapper.readValue(request.getInputStream(), Employee.class);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        String email = request.getParameter("email");
+//        String password = request.getParameter("password");
+
+
+
+//        try {
+//            User user = mapper.readValue(request.getInputStream(), Employee.class);
+//            System.out.println(user.getEmail());
+//            System.out.println(user.getPassword());
+//            User loggedUser = service.authenticate(user.getEmail(), user.getPassword());
+//            if(loggedUser == null)
+//                return null;
+//
+//            request.getSession().setAttribute("loggedUser", loggedUser);
+//            logger.debug("returning logged in user");
+//            System.out.println("\n returning logged user \n");
+//            return loggedUser;
+//
+//        }
+//        catch (IOException e) {
+//            logger.debug("oops! object mapper did not read request input stream!");
+//            System.out.println("oops!");
+//        }
+
+    //private static LoginController loginController;
+
+//    private LoginControllerAlpha() {};
+//
+//    public static LoginController getInstance()
+//    {
+//        if (loginController == null) {
+//            loginController = new LoginControllerAlpha();
+//        }
+//        return loginController;
+//    }
+
+/* This is for memory when I had all of this in the DispatcherServlet */
+
+Employee emp = (Employee) RepositoryPostgres.getInstance().getUserById((Integer) request.getSession().getAttribute("id"));
+//
+//            response.setContentType("text/html");
+//            PrintWriter out = response.getWriter();
+//            out.println("<head> <link rel='stylesheet' type='text/css' href='styles.css'> </head>");
+//            out.println("<body>");
+//            out.println("<h1> Here is your personal information </h2>");
+//            out.println("<table>");
+//            out.println("<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Password</th></tr>");
+//            out.println("<tr>");
+//            out.println("<form method='post' action='/updateInfo.do'>");
+//            out.println("<td><input type='text' id='first_name' name='first_name' value=" +
+//                            emp.getFirstName() + "></td>" +
+//                        "<td><input type='text' id='last_name' name='last_name' value=" +
+//                            emp.getLastName() + "></td>" +
+//                        "<td><input type='email' id='email' name='email' value=" +
+//                            emp.getEmail() + "></td>" +
+//                        "<td><input type='text' id='password' name='password' value=" +
+//                            emp.getPassword() + "></td>");
+//            out.println("<input type='submit' value='Submit Changes'>");
+//            out.println("</form>");
+//            out.println("</tr>");
+//            out.println("</table>");
+//            out.println("<br><br>");
+//            out.println("<a href='/employeeHome.html'><button>Go Back</button></a>");
+
+                response.setContentType("text/html");
+                PrintWriter out = response.getWriter();
+                out.println("<head> <link rel='stylesheet' type='text/css' href='styles.css'> </head>");
+                out.println("<body>");
+                out.println("<h1>All Resolved Requests</h1>");
+                out.println("<table>");
+                out.println("<tr>");
+                out.println("<th>Time Created</th><th>Employee</th><th>Dollar Amount</th><th>Reason for request</th><th>Status of request</th><th>Approved</th><th>Manager</th><th>Manager Comment</th>");
+                out.println("</tr>");
+
+                for (Object obj: (ArrayList)data)
+                {
+                    out.println("<tr>");
+                    out.println(
+                            "<td>" + String.valueOf(((Manager_Reimbursement_Request)obj).getTimeCreated()).substring(0, 16) + "</td>"
+                            + "<td>" + ((Manager_Reimbursement_Request)obj).getEmployeeFirstName() + " " +
+                                        ((Manager_Reimbursement_Request)obj).getEmployeeLastName() + "</td>" +
+                            "<td>" + ((Manager_Reimbursement_Request)obj).getAmount() + "</td>" +
+                            "<td>" + ((Manager_Reimbursement_Request)obj).getReason() + "</td>" +
+                            "<td>" + ((Manager_Reimbursement_Request)obj).getStatus() + "</td>" +
+                            "<td>" + ((Manager_Reimbursement_Request)obj).isApproved() + "</td>" +
+                            "<td>" + ((Manager_Reimbursement_Request)obj).getManagerFirstName() + " " +
+                                    ((Manager_Reimbursement_Request)obj).getManagerLastName() + "</td>" +
+                                    "<td>" + ((Manager_Reimbursement_Request)obj).getManagerComment() + "</td>"
+                    );
+                    out.println("</tr>");
+                }
+
+                out.println("</table>");
+                out.println("<a href='/managerHome.html'><button>Go Back</button></a>");
+                out.println("</body>");
+
+
+                 response.setContentType("text/html");
+                                PrintWriter out = response.getWriter();
+                                out.println("<head> <link rel='stylesheet' type='text/css' href='styles.css'> </head>");
+                                out.println("<h1>All Reimbursement Requests</h1>");
+                                out.println("<table>");
+                                out.println("<tr>");
+                                out.println("<th>Time Created</th><th>Dollar Amount</th><th>Reason for request</th><th>Status of request</th><th>Approved</th>");
+                                out.println("</tr>");
+                                for (Object obj: (ArrayList)data)
+                                {
+                                    out.println("<tr>");
+                                    out.println("<td>" +
+                                            String.valueOf(((Reimbursement_Request)obj).getTimeCreated()).substring(0, 16) + "</td>"
+                                            + "<td>" +
+                                            ((Reimbursement_Request)obj).getAmount() + "</td>" +
+                                            "<td>" +
+                                            ((Reimbursement_Request)obj).getReason() + "</td>" +
+                                            "<td>" +
+                                            ((Reimbursement_Request)obj).getStatus() + "</td>" +
+                                            "<td>" +
+                                            ((Reimbursement_Request)obj).isApproved() + "</td>");
+                                    out.println("</tr>");
+                                }
+                                out.println("</table>");
+                                out.println("<p></p>");
+                                out.println("<a href='/employeeHome.html'> Go Back </a>");
+
+
+//                response.setContentType("text/html");
+//                PrintWriter out = response.getWriter();
+//                out.println("<head> <link rel='stylesheet' type='text/css' href='styles.css'> </head>");
+//                out.println("<h1>Reimbursement Requests Per Individual</h1><br><br>");
+//                out.println("<table>");
+//                out.println("<tr><th>Time Created</th><th>Amount</th><th>Reason</th><th>Status</th><th>Approved</th><th>Resolve</th></tr>");
+//                out.println("<h2>" + ((Manager_Reimbursement_Request)((List)data).get(0)).getEmployeeFirstName() + " " +
+//                                     ((Manager_Reimbursement_Request)((List)data).get(0)).getEmployeeLastName() + "</h2>");
+//                for (Object obj: (ArrayList)data)
+//                {
+//                    out.println("<tr>");
+//                    if ("pending".equals(((Manager_Reimbursement_Request)obj).getStatus()))
+//                    {
+//                        out.println("<form method='post' action='/resolveRequest.do'>");
+//                        out.println("<td>" + String.valueOf(((Manager_Reimbursement_Request)obj).getTimeCreated()).substring(0, 16) + "</td>"
+//                                + "<td>" + ((Manager_Reimbursement_Request)obj).getAmount() + "</td>" +
+//                                "<td>" + ((Manager_Reimbursement_Request)obj).getReason() + "</td>" +
+//                                "<td>" + ((Manager_Reimbursement_Request)obj).getStatus() + "</td>" +
+//                                "<td>" + ((Manager_Reimbursement_Request)obj).isApproved() + "</td>"
+//                                );
+//                        out.println("<input type='number' name='request_id' class='request_id' value=" + ((Manager_Reimbursement_Request)obj).getId()  + ">");
+//
+//                        out.println("<td><button><input type='submit' value='Resolve'></button></td>");
+//                        out.println("</form>");
+//                    }
+//                    else
+//                    {
+//                        out.println("<td>" + String.valueOf(((Manager_Reimbursement_Request)obj).getTimeCreated()).substring(0, 16) + "</td>"
+//                                + "<td>" + ((Manager_Reimbursement_Request)obj).getAmount() + "</td>" +
+//                                "<td>" + ((Manager_Reimbursement_Request)obj).getReason() + "</td>" +
+//                                "<td>" + ((Manager_Reimbursement_Request)obj).getStatus() + "</td>" +
+//                                "<td>" + ((Manager_Reimbursement_Request)obj).isApproved() + "</td>");
+//
+//                    }
+//                    out.println("</tr>");
+//
+//
+//
+//                }
+//                out.println("</table>");
+//                out.println("<br><br><a href='/managerHome.html'><button>Go Back</button></a>");
+
+//                response.setContentType("text/html");
+//                PrintWriter out = response.getWriter();
+//                out.println("<head> <link rel='stylesheet' type='text/css' href='styles.css'> </head>");
+//                out.println("<h1>Employees</h1>");
+//                out.println("<table>");
+//                out.println("<tr>");
+//                out.println("<th>First Name</th><th>Last Name</th><th>Email</th>");
+//                out.println("</tr>");
+//                for (Object obj: (ArrayList)data)
+//                {
+//                    out.println("<tr>");
+//                    out.println("<form method='post' action='/viewRequestsPerEmp.do'>");
+//                    out.println("<td>" + ((Employee)obj).getFirstName() + "</td>"
+//                             +
+//                            "<td>" + ((Employee)obj).getLastName() + "</td>" +
+//
+//                            "<td>" + ((Employee)obj).getEmail() + "</td>");
+//                    out.println("<td><input type='hidden' name='employee_id' value=" + ((Employee)obj).getId() + " id='hiddenId'>");
+//                    out.println("<button><input type=submit value='View Requests'/></button></td>");
+//                    out.println("</form>");
+//                    out.println("</tr>");
+//                }
+//                out.println("</table>");
+//                out.println("<p></p>");
+//                out.println("<p></p>");
+//                out.println("<a href='/managerHome.html'><button>Go Back</button></a>");
+
+
+*********************** HIBERNATE **********************************
+
+package com.ers.repository;
+
+import com.ers.model.Request;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.hibernate.Hibernate;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+
+import javax.persistence.TypedQuery;
+import java.util.Collection;
+import java.util.List;
+import java.util.Properties;
+
+public class HibernateDao
+{
+    private SessionFactory sessionFactory;
+    private static Logger logger = LogManager.getLogger(HibernateDao.class.getName());
+
+    private static HibernateDao dao;
+    private HibernateDao(){};
+    public static HibernateDao getInstance()
+    {
+        dao = new HibernateDao();
+
+        dao.initialize_session_factory_from_environment();
+        return dao;
+    }
+
+    public static void main( String[] args )
+    {
+        HibernateDao app = HibernateDao.getInstance();
+
+        Collection<Request> requests = app.getAllRequests();
+        for (Request req: requests)
+        {
+            System.out.print(req);
+        }
+    }
+
+    private void configure(Properties props)
+    {
+        Configuration configuration = null;
+        if (props == null)
+        {
+            configuration = new Configuration();
+        }
+        else {
+            configuration = new Configuration();
+            configuration.setProperties(props);
+            configuration.addAnnotatedClass(Request.class);
+        }
+        if (configuration != null) {
+            StandardServiceRegistryBuilder builder = new StandardServiceRegistryBuilder().applySettings(configuration.getProperties());
+            this.sessionFactory = configuration.buildSessionFactory(builder.build());
+        }
+    }
+
+    private void initialize_session_factory_from_environment()
+    {
+        String url = "jdbc:postgresql://javafs-210907-rds.csznvnr7exd6.us-east-2.rds.amazonaws.com:5432/postgres";
+        String username = "postgres";
+        String password = "2022AmazingCareer";
+
+        Properties props = new Properties();
+        props.setProperty("hibernate.connection.url", url);
+        props.setProperty("hibernate.connection.username", username);
+        props.setProperty("hibernate.connection.password", password);
+        props.setProperty("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
+        props.setProperty("hibernate.connection.driver_class", "org.postgresql.Driver");
+        props.setProperty("hibernate.show_sql", "true");
+        props.setProperty("hibernate.format_sql", "true");
+        configure(props);
+    }
+
+    private void initialize_entities()
+    {
+
+    }
+
+    public List<Request> getAllRequests()
+    {
+        Session session = this.sessionFactory.openSession();
+        Query query = session.createQuery("From Request");
+        List requests = query.list();
+        session.close();
+        return requests;
+    }
+
+
+}

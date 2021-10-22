@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel='stylesheet' type='text/css' href='styles.css'>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+          crossorigin="anonymous">
+    <title>View or Update Information</title>
+</head>
+    <body>
+    <h2> Here is your personal information </h2>
+        <table>
+            <tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Password</th></tr>
+            <tr>
+               <form method='post' action='/updateInfo.do'>
+                    <td><input type='text' id='first_name' name='first_name' value="emp.getFirstName()"></td>
+                    <td><input type='text' id='last_name' name="last_name" value=`{{}}`></td>
+                    <td><input type='email' id='email' name='email' value="emp.getEmail()"></td>
+                    <td><input type='text' id='password' name='password' value="emp.getPassword()"></td>
+                    <input type='submit' value='Submit Changes'>
+               </form>
+            </tr>
+        </table>
+        <br><br>
+    <button class="btn"><a href='/employeeHome.html'>Go Back</a></button>
+    <script src="javascript/interactivePlaceHolders.js"></script>
+    </body>
+</html>

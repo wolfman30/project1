@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--data source -->
+        <property name="hibernate.connection.url">jdbc:postgresql://javafs-210907-rds.csznvnr7exd6.us-east-2.rds.amazonaws.com:5432/postgres</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.connection.password">2022AmazingCareer</property>
+
+        <!--driver specs-->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQL9Dialect</property>
+
+        <!-- make things pretty -->
+        <property name="hibernate.show_sql">True</property>
+        <property name="hibernate.format_sql">True</property>
+
+        <mapping class="com.ers.model.Request"/>
+    </session-factory>
+</hibernate-configuration>

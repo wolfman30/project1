@@ -1,0 +1,235 @@
+:root
+{
+    --clr-primary: #cfffcc;
+    --clr-vis-primary: #000a7a;
+}
+
+*
+{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    color: var(--clr-vis-primary);
+}
+
+html, body
+{
+    min-height: 100vh;
+    position: relative;
+}
+
+main
+{
+    margin-top: 180px;
+}
+
+h4
+{
+    color:  #cfffcc;
+}
+
+form, table, input[type="email"], input[type="password"]
+{
+    border-radius: 14px;
+}
+
+textarea
+{
+    border: solid 3px #000a7a;
+}
+
+table, th, td
+{
+    border: solid 3px #000a7a;
+    padding: 5px;
+    background: #f2f9ff;
+    font-size: 18px;
+}
+/*************************** header on every page ***************************/
+.card h1
+{
+    background: #000a7a;
+    color: white;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+/***************************************************************************/
+
+/********************** buttons *******************************/
+
+
+
+/*************************************************************/
+
+.row
+{
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    background-color: #000a7a;
+}
+
+.row.resolve-request
+{
+    justify-content: center;
+    align-items: center;
+}
+
+.col
+{
+    display: flex;
+    flex-direction: column;
+    gap: 3.5em;
+}
+
+.form-group
+{
+    margin: 1em 0.5em;
+    position: relative;
+}
+
+.form-group label
+{
+    position: relative;
+    font-size: 1.1em;
+}
+
+.form-group label span
+{
+    position: absolute;
+    left: 5px;
+    bottom: 10px;
+    transition: 0.5s;
+    color: #009e0d;
+    font-size: 1.3em;
+    font-weight: bold;
+    background: none;
+}
+
+.form-group input[type="email"]:focus + span,
+.form-group input[type="password"]:focus + span,
+.form-group input[type="number"]:focus + span,
+.form-group textarea:focus + span
+{
+    transform: translateY(-3.9em);
+    color: #cfffcc;
+    font-size: 0.7em;
+}
+
+.has-content
+{
+    transform: translateY(-1.9em);
+    color: #cfffcc;
+    font-size: 0.7em;
+}
+
+#emp-reimbursement-main
+{
+    display: flex;
+    margin-top: 80px;
+}
+
+#comment
+{
+    resize: none;
+    width: 350px;
+    height: 200px;
+    margin: 35px;
+}
+#manager-home-main
+{
+    top: 0;
+    text-align: center;
+}
+
+.manager-view-list
+{
+    display: flex;
+    gap: 2.5em;
+    justify-content: center;
+    padding: 50px;
+    border-radius: 14px;
+}
+
+#manager-home-main
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+#submission-form-header, #create-request-form-header, #view-info-header
+{
+    text-align: center;
+}
+
+#reason-for-request
+{
+    top:10px;
+}
+
+#manager-comment
+{
+    top: 55px;
+    left: 35px;
+}
+
+#resolve-page-goBack
+{
+    margin-left: 50px;
+}
+
+#person-info-goBack
+{
+    margin-left: 50px;
+}
+
+.request_id
+{
+    display: none;
+}
+
+#hiddenId
+{
+    display: none;
+}
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+    background: #000a7a;
+    color: #f2f9ff;
+}
+
+.view-info
+{
+    background: none;
+}
+
+.table-view {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.1em;
+}
+
+#resolveForm
+{
+    display: flex;
+    flex-direction: column;
+}
+#all-employee-form {
+    margin-left: 200px;
+}
+
+#loading_message
+{
+    background: #000a7a;
+    color: #f2f9ff;
+}
+
+
+
