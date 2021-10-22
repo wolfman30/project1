@@ -26,9 +26,10 @@ To-do list:
 (2) Clone this repo (copy and paste): git clone https://github.com/wolfman30/project1.git
 
 (3) Go to the DatabaseConnector class and change this information in the getConnection() method: 
-        (a) String url = "jdbc:postgresql://javafs-210907-rds.csznvnr7exd6.us-east-2.rds.amazonaws.com:5432/postgres";
-        (b) String username = "postgres";
-        (c) String password = "2022AmazingCareer";
+         
+         * String url = "jdbc:postgresql://javafs-210907-rds.csznvnr7exd6.us-east-2.rds.amazonaws.com:5432/postgres";
+         * String username = "postgres";
+         * String password = "2022AmazingCareer";
         
         * replace all three properties with information to connect to your own AWS instance. 
         
