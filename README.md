@@ -38,7 +38,7 @@ To-do list:
 
 ## Usage
 
-Coming soon 
+*To see a demonstration of what happens when the manager or employee inputs wrong credentials for log in, watch p1_wrong_creds.mkv 
 
 ## License
 
