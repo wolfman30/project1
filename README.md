@@ -31,9 +31,21 @@ To-do list:
          * String username = "postgres";
          * String password = "2022AmazingCareer";
         
-        * replace all three properties with information to connect to your own AWS instance. 
+        * replace all three properties (url, username, and password) with information to connect to your own AWS instance. 
         
-(4) You need to create two tables with a few views, the SQL commands I will have to post here very soon. 
+(4) You need to create two tables with a few views, the SQL commands. 
+     
+   To create the table for users: 
+         create table ers_user (
+               id serial primary key,
+               first_name varchar(40),
+               last_name varchar(80), 
+               pass_word text, 
+               email text, 
+               user_type varchar(30), 
+               phone_number numeric(10)
+               ); 
+   
  
 
 ## Demonstration
