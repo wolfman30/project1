@@ -35,7 +35,8 @@ To-do list:
         
 (4) You need to create two tables with a few views, the SQL commands. 
      
-   To create the table for users: 
+   To create the table for users:
+   
          create table ers_user (
                id serial primary key,
                first_name varchar(40),
@@ -45,6 +46,21 @@ To-do list:
                user_type varchar(30), 
                phone_number numeric(10)
                ); 
+               
+   To create table for expense reimbursement history: 
+         
+         create table reimbursement_request_history (
+            time_created timestamp not null, 
+            employee_id int,
+            amount numeric(10, 2), 
+            reason text, 
+            status varchar(20),
+            approved boolean, 
+            foreign key(employee_id) 
+            references ers_user(id)
+            ); 
+
+      
    
  
 
