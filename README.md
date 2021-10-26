@@ -36,9 +36,9 @@ To-do list:
 (4) You need to create two tables with a few views, the SQL commands I will have to post here very soon. 
  
 
-## Usage
+## Demonstration
 
-*To see a demonstration of what happens when the manager or employee inputs wrong credentials for log in, watch p1_wrong_creds.mkv 
+- To see a demo videos, download and watch the videos in the demo-videos folder 
 
 ## License
 
